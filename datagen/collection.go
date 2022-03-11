@@ -36,7 +36,7 @@ type Collection struct {
 // Index struct used to create an index from `db.runCommand({"createIndexes": "collName", ...})`
 type Index struct {
 	Name                    string            `bson:"name"`
-	Key                     bson.M            `bson:"key"`
+	Key                     bson.D            `bson:"key"`
 	Unique                  bool              `bson:"unique,omitempty"`
 	Sparse                  bool              `bson:"sparse,omitempty"`
 	Bits                    int               `bson:"bits,omitempty"`
@@ -59,7 +59,7 @@ type Index struct {
 // ShardingConfig struct that holds information to shard the collection
 type ShardingConfig struct {
 	ShardCollection  string            `bson:"shardCollection"`
-	Key              bson.M            `bson:"key"`
+	Key              bson.D            `bson:"key"`
 	NumInitialChunks int               `bson:"numInitialChunks,omitempty"`
 	Collation        options.Collation `bson:"collation,omitempty"`
 }
